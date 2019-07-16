@@ -7,37 +7,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 public class Company {
     private Long companyId;
     private String companyName;
+    private List<Employee>employeeList;
 
-
-    public Company() {
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
-    public Company(Long companyId, String companyName) {
-        this.companyId = companyId;
+
+
+    public Company(String companyName) {
         this.companyName = companyName;
     }
 
-    public Company(Long companyId) {
-        this.companyId = companyId;
+    public List<Employee> getEmployeeList() {
+        return employeeList;
     }
 
-    public Long getCompanyId() {
-        return companyId;
+    public Company(Long companyId, String companyName, List<Employee> employeeList) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+        this.employeeList = employeeList;
+    }
+
+    public Company() {
     }
 
     public void setCompanyId(Long companyId) {
         this.companyId = companyId;
     }
 
-    public Company(String companyName) {
+    public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public Long getCompanyId() {
+        return companyId;
     }
 
     public String getCompanyName() {
